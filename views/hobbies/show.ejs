@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Hobby Details</title>
+</head>
+<body>
+  <a href="/">Home</a> | 
+  <a href="/hobbies">All Hobbies</a>
+  <h1>Hobby Details Page</h1>
+  <h6>Hobby Name: <%= hobby.hobby %></h6>
+  <h6>Description: <%= hobby.description %></h6>
+  <hr>
+  <h2>Update Hobby Below!</h2>
+  <form action="/hobbies/show?_method=PUT" method="POST" autocomplete="off">
+    <input type="text" name="hobby" value="<%= hobby.hobby %>"><br>
+    <input type="text" name="description" value="<%= hobby.description %>"><br>
+    <button type="submit">Submit Hobby</button><br><br>
+    <form action="/hobbies?_method=DELETE" method="POST">
+      <button type="submit" class="btn btn-danger btn-sm">Delete <%=hobby.hobby %></button>
+    </form>
+  </form>
+</body>
+</html>
+

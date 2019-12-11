@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Hobbies</h1>
+    <% if (hobbies.length) { %>
+      <ul>
+        <% hobbies.forEach(function(h, idx) { %>
+          <li>
+            <%= h.hobby %> - <a href="/hobbies/<%= idx %>">view details</a>
+            <form action="/hobbies/<%= idx %>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-danger btn-sm">X</button>
+            </form>
+          </li>
+          <% }) %>
+        </ul>
+          <% } else { %>
+            <h4>You have no life</h4>
+          <% } %>
+          <hr>
+          <h2>Add New Hobby</h2>
+          <form action="/hobbies" method="POST" autocomplete="off">
+            <input type="text" name="hobby" placeholder="Hobby"><br>
+            <input type="text" name="description" placeholder="Description"><br>
+            <button type="submit">Submit Hobby</button>
+          </form>
+  </body>
+</html>
